@@ -19,3 +19,7 @@ installed docker,kubectl,minikube in ec2
 created config.yaml file for deployment
 
 Added the Docker image url in the config.yaml file
+
+
+
+Reference link: https://docs.docker.com/language/java/configure-ci-cd/
