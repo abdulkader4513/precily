@@ -8,4 +8,4 @@ app.add_url_rule("/read_ocr", view_func = views.read_ocr, methods=['POST'])
 print("Server Ready", flush=True)
 
 if __name__ == "__main__":    
-  app.run(host='0.0.0.0', port=5000)
+  app.run(host='0.0.0.0', port=4000)
