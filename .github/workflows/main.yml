@@ -40,9 +40,10 @@ jobs:
           kubectl apply -f deploy-to-minikube.yaml
       - name: Test service URLs
         run: |
-          sleep 3m
+          sleep 1m
           kubectl get svc
           minikube service list
           minikube service precily --url
           echo "------------------opening the service------------------"
-          curl $(minikube service precily --url)        
+          curl $(minikube service precily --url)
+          curl --location --request POST '$(minikube service precily --url)/read_ocr' --header 'Content-Type: application/json' --data-raw '{"image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp","lang":"eng","config":""}'
