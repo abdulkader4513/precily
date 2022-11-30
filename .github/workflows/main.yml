@@ -46,10 +46,11 @@ jobs:
           echo "------------------TESTING ROOT FUNCTION------------------"
           curl $(minikube service precily --url)
           echo "------------------TESTING READ OCR FUNCTION------------------"
-          read_ocr_body=$(cat <<EOF
+          read_ocr_body='{"image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp","lang":"eng","config":""}'
+          read_ocr_body_tepl=$(cat <<EOF
           {"image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp","lang":"eng","config":""}
           EOF
           )
           echo $read_ocr_body
-          echo "curl -X POST '$(minikube service precily --url)/read_ocr' -H 'Content-Type: application/json' -d '{"image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp","lang":"eng","config":""}'"
-          curl -X POST '$(minikube service precily --url)/read_ocr' -H 'Content-Type: application/json' -d '{"image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp","lang":"eng","config":""}'
+          echo "curl -X POST '$(minikube service precily --url)/read_ocr' -H 'Content-Type: application/json' --data "$read_ocr_body"
+          curl -X POST '$(minikube service precily --url)/read_ocr' -H 'Content-Type: application/json' --data "$read_ocr_body
