@@ -47,8 +47,13 @@ jobs:
           curl $(minikube service precily --url)
           echo "------------------TESTING READ OCR FUNCTION------------------"
           read_ocr_body=$(cat <<EOF
-            {"image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp","lang":"eng","config":""}
-            EOF
-            )
-          echo "curl -X POST -H "Content-Type: application/json" -d read_ocr_body $(minikube service precily --url)/read_ocr"
+          {
+            "image": "https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp",
+            "lang": "eng",
+            "config": ""
+          }
+          EOF
+          )
+          echo $read_ocr_body
+          echo "curl -X POST -H "Content-Type: application/json" -d "$(read_ocr_body)" $(minikube service precily --url)/read_ocr"
           curl -X POST -H "Content-Type: application/json" -d "$(read_ocr_body)" $(minikube service precily --url)/read_ocr
