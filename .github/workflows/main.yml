@@ -42,5 +42,4 @@ jobs:
           minikube service list
           minikube service precily --url
           echo "------------------opening the service------------------"
-          kubectl expose deployment hello-minikube2 --type=LoadBalancer --port=30503
           curl $(minikube service precily --url)        
