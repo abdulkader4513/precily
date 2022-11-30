@@ -46,4 +46,4 @@ jobs:
           minikube service precily --url
           echo "------------------opening the service------------------"
           curl $(minikube service precily --url)
-          curl --location --request POST '$(minikube service precily --url)/read_ocr' --header 'Content-Type: application/json' --data-raw '{"image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp","lang":"eng","config":""}'
+          curl --location --request POST $(minikube service precily --url)/read_ocr --header 'Content-Type: application/json' --data-raw '{"image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp","lang":"eng","config":""}'
