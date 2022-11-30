@@ -13,7 +13,7 @@ spec:
                 app: precily
         spec:
             containers:
-                - name: precily-api
+                - name: precily
                   imagePullPolicy: Never
                   image: abdulkader4513/precily:latest
                   ports:
@@ -22,15 +22,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-    name: precily
+  name: precily
 spec:
   type: NodePort
   selector:
     app: precily
   ports:
-    type: NodePort
-    selector:
-        app: precily
-    ports:
-        - port: 4000
-          targetPort: 4000
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
