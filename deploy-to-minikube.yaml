@@ -24,7 +24,7 @@ kind: Service
 metadata:
     name: precily
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: precily
   ports:
