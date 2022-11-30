@@ -52,5 +52,5 @@ jobs:
           EOF
           )
           echo $read_ocr_body
-          echo "curl -X POST '$(minikube service precily --url)/read_ocr' -H 'Content-Type: application/json' --data "$read_ocr_body"
-          curl -X POST '$(minikube service precily --url)/read_ocr' -H 'Content-Type: application/json' --data "$read_ocr_body
+          echo "curl -X POST '$(minikube service precily --url)/read_ocr' -H 'Content-Type: application/json' --data-raw "$read_ocr_body"
+          curl -X POST '$(minikube service precily --url)/read_ocr' -H 'Content-Type: application/json' --data-raw "$read_ocr_body
