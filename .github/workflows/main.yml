@@ -40,7 +40,6 @@ jobs:
           kubectl apply -f deploy-to-minikube.yaml
       - name: Test service URLs
         run: |
-          minikube start --tunnel
           kubectl get svc
           minikube service list
           minikube service precily --url
