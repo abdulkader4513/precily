@@ -24,9 +24,16 @@ kind: Service
 metadata:
     name: precily
 spec:
-    type: NodePort
-    selector:
-        app: precily
-    ports:
-        - port: 4000
-          targetPort: 4000
+  type: LoadBalancer
+  selector:
+    app: precily
+  ports:
+  - name: http
+    port: 80
+    targetPort: 4000
+#     type: NodePort
+#     selector:
+#         app: precily
+#     ports:
+#         - port: 4000
+#           targetPort: 4000
