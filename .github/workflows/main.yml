@@ -46,5 +46,5 @@ jobs:
           echo "------------------TESTING ROOT FUNCTION------------------"
           curl $(minikube service precily --url)
           echo "------------------TESTING READ OCR FUNCTION------------------"
-          echo "curl --location --request POST $(minikube service precily --url)/read_ocr --header 'Content-Type: application/json' --data-raw '{ "image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp" ,"lang":"eng","config":""}'"
-          curl --location --request POST $(minikube service precily --url)/read_ocr --header 'Content-Type: application/json' --data-raw '{ "image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp" ,"lang":"eng","config":""}'
+          echo "curl -X POST -H "Content-Type: application/json" -d '{"image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp","lang":"eng","config":""}' $(minikube service precily --url)/read_ocr"
+          curl -X POST -H "Content-Type: application/json" -d '{"image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp","lang":"eng","config":""}' $(minikube service precily --url)/read_ocr
