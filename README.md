@@ -64,6 +64,7 @@ precily
 ![](https://lh6.googleusercontent.com/kUqdceGtvEyP5czIAlEjSWI2EF1dt3qAdL15hdmUebrOCAglDC_oIk7FoynoUACVCjbtTBvfrwqQz9BrFteqV4Oalz2EZLOdjY6IDFw7h5PTRl4dZtKzHNPnR6vqFr505YtHtItBC_yV_d5yvngFBUdd7BgTPpipwCk89GsORj366WCza9Rz2aQ314xSeg)
 
 4. Created Dockerfile in the root directory. Dockerfile has the following 
+
 ```
 # Dockerfile
 FROM python:3.8-slim-buster
@@ -159,7 +160,7 @@ kubectl get all
 
 Curl Command: 
 ```
-curl --location --request GET 'http&#x3A;//54.91.77.101:4000/'
+curl --location --request GET 'http://54.91.77.101:4000/'
 ```
 ![](https://lh6.googleusercontent.com/42lq5bdCfT7ZuUpXncpgs7gXZWfKs36N8yx_uHNqDaOuG_0Z35H3vdSQHbbi4NozT7XNeIqraguAd_NpHSnNmXkP80chFeUpNtmcvz9gUFoQem6VJZGAFJSOLy64pmhN1wKbYNi-rmmQoIXB1n_dfofQ62iOs8X0Maaq0J690VklU_6XoqrYDjglHmXmlQ)
 
@@ -178,9 +179,6 @@ image_path = os.path.join(image_name)
 _The below_ image is used for testing purposes.
 
 ![](https://lh3.googleusercontent.com/rLYhthjQhg7Ln8G_kOqqN1JU_AOrKjDZgnYmC_3DAnqLDZa74nA2vaJDC4_1T-Hs0XH1bj53TO6eVhd5k1oLAKongwZcBN5kqVGJDGGWdhfTWIxYFZcHAdRe2Q26Rg7GSq9MHVDNCrmY6JTZbx-TQ1PHNXSxOcJ9gPSVcGHEUlbIhO5uxXR6kkmluNzeiA)
-
-  
-
 
 Send the request from the postman.
 
@@ -211,8 +209,8 @@ Below are the steps performed in the GitHub Action
 
 Step 1: Check out the repository
 ```
-	        	name: Checkout
-        		uses: actions/checkout@v3
+	name: Checkout
+	uses: actions/checkout@v3
 ```
 Step 2: Log in to Docker Hub with Credentials at the Secrets which we created
 ```
@@ -225,8 +223,8 @@ Step 2: Log in to Docker Hub with Credentials at the Secrets which we created
 
 Step 3: Instals and starts the minikube
 ```
-      	 name: Start minikube
-        	 uses: medyagh/setup-minikube@master
+      	name: Start minikube
+        uses: medyagh/setup-minikube@master
 ```
 Step 4: Checking kubectl command inside the minikube
 ```
