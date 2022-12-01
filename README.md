@@ -1,6 +1,6 @@
 ### Assessment Task
 
-Devops Engineer
+DevOps Engineer
 
 
 #### Given: 
@@ -10,13 +10,13 @@ You are given an application with APIs which extracts text from images.
 
 #### Task: 
 
-You have to build a lightweight docker container which will map port 4000 of
+You have to build a lightweight docker container that will map port 4000 of
 
-your app to your machine. You also have to create a Kubernetes manifest file which
+your app to your machine. You also have to create a Kubernetes manifest file that
 
 can deploy replica sets in a cluster. Create a requirements.txt file for this repo. Create
 
-a contract of rest api read_ocr. The solution will be evaluated by running the manifest
+a contract of rest API read_ocr. The solution will be evaluated by running the manifest
 
 file on minikube.
 
@@ -26,7 +26,7 @@ Extra marks will be given for:
 
 • setting up CI/CD files for the same app.
 
-• adding logging functionality in repo.
+• adding logging functionality in the repo.
 
 Dependencies: opencv-python==4.4.0.46 pytesseract==0.3.7
 
@@ -37,7 +37,7 @@ Please find the link below:
 
 ### Solution
 
-1. Cloned the provided github repo
+1. Cloned the provided GitHub repo
 
 2. Created requirements.txt in the root folder for the dependencies. Initially tried with opencv-python module but faced few issues. Upon researching, it was suggested to use opencv-python-headless instead.
 
@@ -59,7 +59,7 @@ precily
 
 |\_\_\_\_ requirements.txt
 
-3. Make the flask application running locally using **_python app.py_**. Tested the root  from the browser and got the expected response {"API Documentation":""}
+3. Make the flask application run locally using **_python app.py_**. Tested the root  from the browser and got the expected response {"API Documentation":""}
 
 ![](https://lh6.googleusercontent.com/kUqdceGtvEyP5czIAlEjSWI2EF1dt3qAdL15hdmUebrOCAglDC_oIk7FoynoUACVCjbtTBvfrwqQz9BrFteqV4Oalz2EZLOdjY6IDFw7h5PTRl4dZtKzHNPnR6vqFr505YtHtItBC_yV_d5yvngFBUdd7BgTPpipwCk89GsORj366WCza9Rz2aQ314xSeg)
 
@@ -79,7 +79,7 @@ _EXPOSE 4000_
 
 _CMD \["python", "app.py"]_
 
-Used python 3.8 version and chosen slim-buster inorder to reduce the size of the docker images. This can help us deploy the docker image faster. Created a working directory. Copied only requirements.txt because docker images are built layer by layer. Whenever the bottom layer gets changed, all the layers above them are rebuilt. So, application code changes often however, dependencies won't change much. Moreover, building the dependencies takes more time during the building process. Downloading and Installation of all the required dependencies is done using the command pip3 install. Source code is copied to the container and port 4000 is exposed as per the given task. Finally ran the app.py file from the container.
+Used python 3.8 version and chose slim-buster in order to reduce the size of the docker images. This can help us deploy the docker image faster. Created a working directory. Copied only requirements.txt because docker images are built layer by layer. Whenever the bottom layer gets changed, all the layers above them are rebuilt. So, application code changes often however, dependencies won't change much. Moreover, building the dependencies takes more time during the building process. Downloading and Installation of all the required dependencies is done using the command pip3 install. The source code is copied to the container and port 4000 is exposed as per the given task. Finally ran the app.py file from the container.
 
 Directory Structure so far:
 
@@ -97,7 +97,7 @@ precily
 
 5. Build and Pushed the docker image
 
-Created a new repository named precily in the Docker Hub account. Docker image is built using docker build command and tag is used to set the name of the image. Docker images command is used to list the images and docker push command is used to push it to the docker hub repository. 
+Created a new repository named precily in the Docker Hub account. A Docker image is built using the docker build command and a tag is used to set the name of the image. The Docker images command is used to list the images and the docker push command is used to push them to the docker hub repository. 
 
 1. _docker build --tag abdulkader4513/precily:latest ._
 2. _docker images_
@@ -105,10 +105,10 @@ Created a new repository named precily in the Docker Hub account. Docker image i
 
 ![](https://lh3.googleusercontent.com/tF9svcd3d_0VnnrYqNKPXgrGeOdQ48moJm108zA4_WbQVrE31yROVoI8DSJ5BNZQ82c0Z-1lRYBNDZTfXZobRc1ZoUKLZojDVNbagT0uDlcTxlpE6oZZa5vJ6-Zcrv_MlnYNFMxtZOx9FxV3_oYC79rsZfOi6n7L4imcsyljBTiBDTGIdwT63oG-xIV3nA)
 
-6. Created a new github repository named precily and added all the files to the repository. Repository link: <https://github.com/abdulkader4513/precily>
+6. Created a new GitHub repository named precily and added all the files to the repository. Repository link: <https://github.com/abdulkader4513/precily>
 7. Created an Ubuntu EC2 instance with t3.large instance size and 30 GB EBS volume disk space.
 8. Connected to the EC2 instance from the browser using EC2 instance connect. 
-9. Update the apt package index and installed the docker
+9. Update the apt package index and install the docker
 
 _sudo apt-get update_
 
@@ -158,9 +158,9 @@ _minikube start_
 
 _minikube status_
 
-12. Created the Kubernetes configuration file named deploy-to-minikube.yaml. This file has Deployment and Service configuration in the single file. Took the sample configuration from the official kubernetes documentation for nginx container. Made the changes in the spec selector, template labels, container spec (changed the name, image and container port) to suit our needs.
+12. Created the Kubernetes configuration file named deploy-to-minikube.yaml. This file has Deployment and Service configuration in a single file. Took the sample configuration from the official Kubernetes documentation for the Nginx container. Made the changes in the spec selector, template labels, and container spec (changed the name, image, and container port) to suit our needs.
 
-13. Using triple hyphens splitted the deployment and service configuration. In the service configuration, mage the change in metadata, spec selector and ports
+13. Using triple hyphens splits the deployment and service configuration. In the service configuration, mage the change in metadata, spec selector, and ports
 
 14. Using the below commands, deployed the kubernetes deployment and service
 
@@ -180,18 +180,18 @@ Curl Command: curl --location --request GET 'http&#x3A;//54.91.77.101:4000/'
 
 17. Tested the read ocr function from the postman.
 
-- Made few changes in the views.py
-- Added logging module to see the errors and to print other information. 
+- Made a few changes in the views.py
+- Added a logging module to see the errors and to print other information. 
 
 _import logging_
 
 _logging.basicConfig(level=logging.INFO)_
 
-- Printed the configuration like image, lang, config before the request is made to fetch the image to make sure the request is received correctly. Image is fetched and stored in the root directory, so did not join the directory named data hard coded as IMAGEPATH variable. 
+- Printed the configuration like image, lang, and config before the request is made to fetch the image to make sure the request is received correctly. Image is fetched and stored in the root directory, so did not join the directory named data hard coded as IMAGEPATH variable. 
 
 _image_path __=__ os.path.__join__(image_name)_
 
-__Below image is used for testing purposes.
+_The below_ image is used for testing purposes.
 
 ![](https://lh3.googleusercontent.com/rLYhthjQhg7Ln8G_kOqqN1JU_AOrKjDZgnYmC_3DAnqLDZa74nA2vaJDC4_1T-Hs0XH1bj53TO6eVhd5k1oLAKongwZcBN5kqVGJDGGWdhfTWIxYFZcHAdRe2Q26Rg7GSq9MHVDNCrmY6JTZbx-TQ1PHNXSxOcJ9gPSVcGHEUlbIhO5uxXR6kkmluNzeiA)
 
@@ -223,13 +223,13 @@ _}__'_
 
 ### Continuous Integration and Continuous Deployment:
 
-CICD is achieved through Github repository and Github Actions.  
+CICD is achieved through the GitHub repository and GitHub Actions.  
 
-On the [Github repository](https://github.com/abdulkader4513/precily),  added two new repository secret - one named as DOCKER_HUB_USERNAME to store the username of the Docker Hub repository and second one named as DOCKER_HUB_ACCESS_TOKEN to store the password of the docker hub. 
+On the [GitHub repository](https://github.com/abdulkader4513/precily),  added two new repository secrets - one named DOCKER_HUB_USERNAME to store the username of the Docker Hub repository and the second one named DOCKER_HUB_ACCESS_TOKEN to store the password of the docker hub. 
 
-Created a new file named main.yml in the directory .github/workflows. Basically, on every change in the main branch, github actions spin up the ubuntu container. 
+Created a new file named main.yml in the directory .github/workflows. Basically, on every change in the main branch, GitHub actions spin up the ubuntu container. 
 
-Below are the steps performed in the Github Action
+Below are the steps performed in the GitHub Action
 
 Step 1: Check out the repository
 
@@ -237,7 +237,7 @@ ___        ____name: Checkout_
 
 _        __ ____uses: actions/checkout@v3_
 
-Step 2: Login to Docker Hub with Credentials at the Secrets which we created
+Step 2: Log in to Docker Hub with Credentials at the Secrets which we created
 
 _        name: Login to Docker Hub with Credentials at the Secrets_
 
@@ -263,7 +263,7 @@ _        run: kubectl get pods -A _
 
 ![](https://lh3.googleusercontent.com/ZOvtl2fRPpbFFGDxhA4chT0v1bMkYNIr_VAmoZ6-YphirOZVoMBIEhehOeRXSrOWHr7qp2XLV72GlOrhyyDdz-x7_Nezi_zhHE5UtZDUZhlhuPneW1XBaQmKjI1xPrdgbpzZGvbJtxu6vjRawOQc3YKdlf8ZKoR0OfuAUKlZmXtLxdkURyqnnsyNvKxnrw)
 
-Step 5: docker-env is used to build docker images inside the minkube. Performed docker build and tag. Listed the docker images. Pushed the image to the Docker Hub.
+Step 5: docker-env is used to build docker images inside the minikube. Performed docker build and tag. Listed the docker images. Pushed the image to the Docker Hub.
 
 _        name: Build and push_
 
@@ -285,7 +285,7 @@ _          echo -n "verifying images:"_
 
 ![](https://lh4.googleusercontent.com/seSLpjPMdqHjEO_1CfQLIEN_lcd5oLsAZLldWtuHtjYOgnj-mw8gnmga9eIjRYiBS8amo3wVPBj_b7JQO3tFj4Ytivi0UJ9_xu3l119Gp_YLmpMFnI75puQBA_9gH444_qCeZWw33hMoC_jv_nNZVoxzVb8VKAU-yJ0gAHtEiJqr4qCWyQ5GVXsxOyV4pg)
 
-Step 6: Deployed the Kubernetes Deployment and Service using kubectl apply on the kubernetes created configuration file deploy-to-minikube.yaml
+Step 6: Deployed the Kubernetes Deployment and Service using kubectl apply on the Kubernetes created configuration file deploy-to-minikube.yaml
 
 _        name: Deploy to minikube_
 
@@ -295,7 +295,7 @@ _          kubectl apply -f deploy-to-minikube.yaml_
 
 ![](https://lh4.googleusercontent.com/rICbDmUYbVHy4CJtznlmkj4r6bEbsbSRbyhKPC0ScqaNCPhdfiXn-6pK6PWiLdS4yqPEToGtyC4DvjQpU3DEvS5aQxwlbK-grJHyO1DX_6xJ31AU3TbZvO85MVy-M-MesyufEOsSl2bvb9WR-9jtMxd4OJMKL1JX0a3vY8s-dgfAoSlO-1ENI0MKbTAncQ)
 
-Step 7: In this stage, tested two APIs. One using a GET request and another using a POST request. In the beginning of this stage,intentionally made the container to sleep for one minute. This is because Kubernetes service takes some time to give the External IP. Then listed the service using kubectl. Got the service url of the container with the port. 
+Step 7: In this stage, test two APIs. One uses a GET request and another uses a POST request. At the beginning of this stage, intentionally made the container sleep for one minute. This is because the Kubernetes service takes some time to give the External IP. Then listed the service using kubectl. Got the service URL of the container with the port. 
 
         name: Test service URLs
 
@@ -327,21 +327,21 @@ Step 7: In this stage, tested two APIs. One using a GET request and another usin
 
 The above image shows the response of the root page. 
 
-Overall, CI and CD process is completed. Step 1-5 are belongs to Continuous Integration and Step 6, Step 7 belong to Continuous deployment.
+Overall, CI and CD process is completed. Steps 1-5 belong to Continuous Integration and Step 6, Step 7 belong to Continuous deployment.
 
 
 ### Improvements:
 
-1. CI and CD can be separated into two separate Github Actions. It would be great to have approval process in between them. Proposed CICD method: 
+1. CI and CD can be separated into two separate GitHub Actions. It would be great to have an approval process between them. Proposed CICD method: 
 
 CI - Step 1 to 5  → Developer Lead/Manager → CD - Step 6 to 7 (Development Server) → Approval from Architect/Manager  → CD - Step 6 to 7 (QA Server) → QA Sign Off → Approval from Architect/Manager  → CD - Step 6 to 7 (Production Server)
 
-2. Minikube is suitable for proof of concept and may be for development environment. It is better to go with managed Kubernetes Services like (AWS EKS, Linode LKE or something similar). 
-3. Provisioning of EC2 server is performed using AWS Console. Provisioning of EC2 using Terraform is much preferred because of the state file. 
-4. While performing the Flask API for read ocr, the response took almost 6 seconds average. This may make the end users to wait longer time. So it is better to go with the decoupled process meaning get the request from the end user, store the message in the queue and send the response to the user that we received your request. All the queue messages can be processed by worker servers and it can notify the end user after processing is over, deletes the message from the queue.
-5. Settting minikube requires lots of installation. Ansible canhelp here to make the isntallation process easier and at scale. 
+2. Minikube is suitable for proof of concept and maybe for the development environment. It is better to go with managed Kubernetes Services like (AWS EKS, Linode LKE, or something similar). 
+3. Provisioning of the EC2 server is performed using AWS Console. Provisioning of EC2 using Terraform is much preferred because of the state file. 
+4. While performing the Flask API for read OCR, the response took almost 6 seconds on average. This may make the end users wait a long time. So it is better to go with the decoupled process meaning get the request from the end user, store the message in the queue and send the response to the user that we received your request. All the queue messages can be processed by worker servers and they can notify the end user after processing is over, and deletes the message from the queue.
+5. Setting up a minikube requires lots of installation. Ansible can help here to make the installation process easier and at scale. 
 
-Reference:
+### Reference:
 
 1. Dockerfile for Python
 
