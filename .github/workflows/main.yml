@@ -52,8 +52,10 @@ jobs:
           EOF
           )
           echo $read_ocr_body
-          echo "curl --header "Content-Type: application/json" --request POST --data '{"image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp","lang":"eng","config":""}' '$(minikube service precily --url)/read_ocr'"
-          
-          curl --location --request POST '$(minikube service precily --url)/read_ocr' \
+          echo 'curl --location --request POST "$(minikube service precily --url)/read_ocr" \
           --header 'Content-Type: application/json' \
-          --data-raw 'read_ocr_body_tepl'
+          --data-raw "$read_ocr_body_tepl"'
+          
+          curl --location --request POST "$(minikube service precily --url)/read_ocr" \
+          --header 'Content-Type: application/json' \
+          --data-raw "$read_ocr_body_tepl"
