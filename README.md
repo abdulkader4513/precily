@@ -69,6 +69,10 @@ precily
 # Dockerfile
 FROM python:3.8-slim-buster
 
+RUN apt-get update && apt-get install -y \
+  tesseract-ocr \
+  libtesseract-dev
+
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
@@ -81,7 +85,7 @@ EXPOSE 4000
 CMD ["python", "app.py"]
 
 ```
-Used python 3.8 version and chose slim-buster in order to reduce the size of the docker images. This can help us deploy the docker image faster. Created a working directory. Copied only requirements.txt because docker images are built layer by layer. Whenever the bottom layer gets changed, all the layers above them are rebuilt. So, application code changes often however, dependencies won't change much. Moreover, building the dependencies takes more time during the building process. Downloading and Installation of all the required dependencies is done using the command pip3 install. The source code is copied to the container and port 4000 is exposed as per the given task. Finally ran the app.py file from the container.
+Used python 3.8 version and chose slim-buster in order to reduce the size of the docker images. This can help us deploy the docker image faster. Added tesseract-ocr  and libtesseract-dev from the ubuntu package manager. Created a working directory. Copied only requirements.txt because docker images are built layer by layer. Whenever the bottom layer gets changed, all the layers above them are rebuilt. So, application code changes often however, dependencies won't change much. Moreover, building the dependencies takes more time during the building process. Downloading and Installation of all the required dependencies is done using the command pip3 install. The source code is copied to the container and port 4000 is exposed as per the given task. Finally ran the app.py file from the container.
 
 Directory Structure so far:
 
