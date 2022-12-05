@@ -275,9 +275,11 @@ Step 7: In this stage, test two APIs. One uses a GET request and another uses a 
           echo "curl -X POST -H "Content-Type: application/json" -d '{"image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp","lang":"eng","config":""}' $(minikube service precily --url)/read_ocr"
           curl -X POST -H "Content-Type: application/json" -d '{"image":"https://miro.medium.com/max/640/1*t4bo8ptFFmSNbYduTCrcKg.webp","lang":"eng","config":""}' $(minikube service precily --url)/read_ocr
 ```
-![](https://lh5.googleusercontent.com/UprrCHCuQHQkCiMy5QaFpzdU3megU9LUwRKoYrDizCEhdwK2g8dv70C-3kScsQAt3dEOSq0djkTqWV7GRAju5VKK9GANUDTxyR-tS4Di2vzVm15sVSp8RjzzG1lmSXn9EG6yFf-QCVuiFRw19WNZs-wZwohBW1EgO6iHqQ93tnnqsDhsmn16Ehl9dVhA-Q)
+<!-- ![](https://lh5.googleusercontent.com/UprrCHCuQHQkCiMy5QaFpzdU3megU9LUwRKoYrDizCEhdwK2g8dv70C-3kScsQAt3dEOSq0djkTqWV7GRAju5VKK9GANUDTxyR-tS4Di2vzVm15sVSp8RjzzG1lmSXn9EG6yFf-QCVuiFRw19WNZs-wZwohBW1EgO6iHqQ93tnnqsDhsmn16Ehl9dVhA-Q) -->
 
-The above image shows the response of the root page. 
+![image](https://user-images.githubusercontent.com/114874167/205524146-52124e75-a7be-424a-8a1f-15142e7ad0b0.png)
+
+The above image shows the response of the root page API and the read_ocr API functionality.  
 
 Overall, CI and CD process is completed. Steps 1-5 belong to Continuous Integration and Step 6, Step 7 belong to Continuous deployment.
 
